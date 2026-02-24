@@ -31,10 +31,11 @@ function createHashMap (tree) {
 
 function getPath (parentCheapest, from, to) {
     const path = [to];
+    let cost = 0;
 
     while (path[path.length - 1] !== from) {
         const lastItem = path[path.length - 1];
-        path.push(parentCheapest.get(lastItem))
+        path.push(parentCheapest.get(lastItem));
     }
 
     return path.reverse();
@@ -78,11 +79,19 @@ function deixtra(tree, from, to) {
     }
 
     if (currrentCheapestKey === to) {
-        return getPath(parentCheapest, from, to);
+        return JSON.stringify({
+            
+            path: getPath(parentCheapest, from, to),
+            cost: pointsCheapest.get(to)
+        }, null, 2)
     } else {
         return [];
     }
 }
 
 console.log(1)
-console.log(deixtra(graph, "a", "e"))
+console.log(deixtra(graph, "a", "e"));
+console.log(deixtra(graph, "b", "e"));
+console.log(deixtra(graph, "a", "f"));
+console.log(deixtra(graph, "b", "f"));
+console.log(deixtra(graph, "f", "a"));
