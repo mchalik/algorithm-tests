@@ -20,7 +20,7 @@ function isPolyndrom(str) {
     let leftIndex = 0;
     let rightIndex = str.length - 1;
 
-    while (leftIndex <= rightIndex) {
+    while (leftIndex < rightIndex) {
         const leftLetter = str[leftIndex];
         const rightLetter = str[rightIndex];
         
